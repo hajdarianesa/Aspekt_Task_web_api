@@ -1,0 +1,6 @@
+@Aspekt_Task_web_api_HostAddress = http://localhost:5038
+
+GET {{Aspekt_Task_web_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
