@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json;
 using Domain.Exceptions.Company;
+using Domain.Exceptions.GeneralException;
 
 namespace Aspekt_Task_web_api.Middlewares;
 
@@ -19,7 +20,8 @@ public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<Exception
 
 	private static readonly Dictionary<Type, HttpStatusCode> ExceptionStatusCodes = new()
 	{
-        { typeof(CompanyExistsException), HttpStatusCode.NotFound }
+        { typeof(CompanyExistsException), HttpStatusCode.Conflict },
+		{ typeof(NotFoundException), HttpStatusCode.NotFound },
 	};
 
 	/// <summary>
